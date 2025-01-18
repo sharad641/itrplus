@@ -1,0 +1,187 @@
+/* General styling for Services section */
+.services {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #333;
+  }
+  
+  .services h2 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    color: #007bff;
+    font-weight: 700;
+  }
+  
+  .services p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  /* Grid layout for the services */
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-items: center;
+  }
+  
+  .service-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .service-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #007bff;
+    font-weight: 600;
+  }
+  
+  .service-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  .service-card .cta-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .service-card .cta-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Why Choose Section */
+  .why-choose {
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .why-choose h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+  }
+  
+  .why-choose p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  .why-choose .cta-button {
+    padding: 14px 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .services h2 {
+      font-size: 2.5rem;
+    }
+  
+    .service-card {
+      padding: 25px;
+    }
+  
+    .service-card h3 {
+      font-size: 1.8rem;
+    }
+  
+    .service-card p {
+      font-size: 0.95rem;
+    }
+  
+    .why-choose h3 {
+      font-size: 2rem;
+    }
+  
+    .why-choose p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .services h2 {
+      font-size: 2rem;
+    }
+  
+    .service-card {
+      padding: 20px;
+    }
+  
+    .service-card h3 {
+      font-size: 1.6rem;
+    }
+  
+    .service-card p {
+      font-size: 0.9rem;
+    }
+  
+    .why-choose h3 {
+      font-size: 1.8rem;
+    }
+  
+    .why-choose p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services h2 {
+      font-size: 1.8rem;
+    }
+  
+    .services p {
+      font-size: 1.1rem;
+    }
+  
+    .service-card {
+      padding: 15px;
+    }
+  
+    .service-card h3 {
+      font-size: 1.4rem;
+    }
+  
+    .service-card p {
+      font-size: 0.85rem;
+    }
+  
+    .service-card .cta-button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  
+    .why-choose h3 {
+      font-size: 1.6rem;
+    }
+  
+    .why-choose p {
+      font-size: 0.95rem;
+    }
+  }
+  
