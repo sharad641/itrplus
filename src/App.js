@@ -9,6 +9,7 @@ import ContactUs from "./components/ContactUs";
 import PricingPlans from "./components/PricingPlans";
 import Footer from "./components/Footer";
 import TaxFilingForm from "./components/TaxFilingForm"; // Import TaxFilingForm
+import SalaryManagement from "./components/SalaryManagement";
 
 import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/pricing-plans" element={<PricingPlans />} />
           <Route path="/tax-filing" element={<TaxFilingForm />} /> {/* Tax Filing Form Route */}
+          <Route path="/salary-management" element={<SalaryManagement />} /> {/* Salary Management Route */}
         </Routes>
         
         {/* Footer will appear at the bottom of every page */}
@@ -52,4 +54,3 @@ function App() {
 }
 
 export default App;
- 

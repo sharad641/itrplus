@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { auth } from "../firebase";
 import {
   signInWithEmailAndPassword,
@@ -13,6 +14,7 @@ function Login({ setUser }) {
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // Initialize navigate
 
   // Google Sign-In Handler
   const handleGoogleLogin = async () => {
@@ -21,6 +23,7 @@ function Login({ setUser }) {
       const userCredential = await signInWithPopup(auth, provider);
       setUser(userCredential.user); // Update user state
       alert("Login with Google successful!");
+      navigate("/"); // Redirect to home page
     } catch (err) {
       setError(err.message);
     }
@@ -40,6 +43,7 @@ function Login({ setUser }) {
       }
       setUser(userCredential.user); // Update user state
       alert(isLogin ? "Login successful!" : "Account created successfully!");
+      navigate("/"); // Redirect to home page
     } catch (err) {
       if (err.code === "auth/user-not-found" && isLogin) {
         setError("No account found with this email. Please sign up.");
@@ -80,9 +84,14 @@ function Login({ setUser }) {
       </form>
       <div className="google-login">
         <button className="google-button" onClick={handleGoogleLogin}>
+          <img 
+            src="https://th.bing.com/th?id=OIP.AfKMLf4rKX7EqOSAVpujIQHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" 
+            alt="Google Logo" 
+          />
           Login with Google
         </button>
       </div>
+
       <p className="toggle-text">
         {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
         <span className="toggle-link" onClick={() => setIsLogin(!isLogin)}>

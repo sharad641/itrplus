@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Services.css";
 
 function Services() {
+  const navigate = useNavigate(); // Initialize the navigate function
+
   return (
     <section className="services">
       <h2>Our Services</h2>
@@ -25,7 +27,12 @@ function Services() {
           <p>
             Optimize your earnings with budgeting tools and tax-saving advice.
           </p>
-          <button className="cta-button">Learn More</button>
+          <button
+            className="cta-button"
+            onClick={() => navigate("/salary-management")} // Redirect to Salary Management
+          >
+            Learn More
+          </button>
         </div>
 
         {/* Freelancer Solutions Service Card */}
