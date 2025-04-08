@@ -1,23 +1,25 @@
+// src/firebase.js
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getDatabase, ref, push, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
-import { getDatabase } from "firebase/database"; // Import Realtime Database functions
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBcMZYDe-PHpbMWHGTH9iriX9Yrs5Mllqc",
-  authDomain: "itrplus-fc04f.firebaseapp.com",
-  projectId: "itrplus-fc04f",
-  storageBucket: "itrplus-fc04f.appspot.com",
-  messagingSenderId: "634782148966",
-  appId: "1:634782148966:web:d2d32252a5fb15b01780a7",
-  measurementId: "G-D4NHRVHBVP",
+  apiKey: "AIzaSyBMKhOveIscJ-Nn_W6bX2ni1_TW4OBgKOk",
+  authDomain: "fintech-a8806.firebaseapp.com",
+  databaseURL: "https://fintech-a8806-default-rtdb.firebaseio.com",
+  projectId: "fintech-a8806",
+  storageBucket: "fintech-a8806.appspot.com",
+  messagingSenderId: "7233255429",
+  appId: "1:7233255429:web:aa3c4746495e936e24046c",
+  measurementId: "G-PXR27YSVSP"
 };
 
-// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth(app);
+const storage = getStorage(app);
+const analytics = getAnalytics(app);
 
-// Initialize Firebase Authentication
-export const auth = getAuth(app);
-
-// Initialize Firebase Realtime Database
-export const database = getDatabase(app); // Initialize Realtime Database
-
+export { app, auth, database, storage, analytics, ref, push, onValue };

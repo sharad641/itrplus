@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { auth } from "../firebase";
 import {
@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
 } from "firebase/auth";
 import "./Login.css";
 
@@ -15,6 +16,19 @@ function Login({ setUser }) {
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate(); // Initialize navigate
+
+  // Check if the user is already logged in on component mount
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user); // Set user state if logged in
+        navigate("/"); // Redirect to home page
+      }
+    });
+
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
+  }, [setUser, navigate]);
 
   // Google Sign-In Handler
   const handleGoogleLogin = async () => {

@@ -20,7 +20,7 @@ function Navbar({ user, onLogout }) {
       {/* Logo Section */}
       <div className="navbar-logo">
         <Link to="/" onClick={closeMenu}>
-          ITRPLUS
+          Fincorp
         </Link>
       </div>
 
@@ -37,46 +37,45 @@ function Navbar({ user, onLogout }) {
       <div className={`navbar-links ${isMobile ? "active" : ""}`}>
         <ul>
           <li>
-            <Link to="/" onClick={closeMenu}>
-              Home
-            </Link>
+            <Link to="/" onClick={closeMenu}>Home</Link>
           </li>
           <li>
-            <Link to="/services" onClick={closeMenu}>
-              Services
-            </Link>
+            <Link to="/services" onClick={closeMenu}>Services</Link>
+          </li>
+          
+          <li>
+            <Link to="/user-info" onClick={closeMenu}>Financial Info</Link>
           </li>
           <li>
-            <Link to="/about" onClick={closeMenu}>
-              About Us
-            </Link>
+            <Link to="/contact-us" onClick={closeMenu}>Contact Us</Link>
           </li>
-          <li>
-            <Link to="/pricing-plans" onClick={closeMenu}>
-              Pricing Plans
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact-us" onClick={closeMenu}>
-              Contact Us
-            </Link>
-          </li>
-          {user ? (
-            <li>
-              <button
-                className="navbar-logout"
-                onClick={() => {
-                  onLogout();
-                  closeMenu();
-                }}
-              >
-                Logout
-              </button>
-            </li>
-          ) : (
+
+          {/* 👤 Show user-specific links if logged in */}
+          {user && (
+            <>
+              <li>
+                <Link to="/profile" onClick={closeMenu}>Profile</Link> {/* Profile Link */}
+              </li>
+             
+              <li>
+                <button
+                  className="navbar-logout"
+                  onClick={() => {
+                    onLogout();
+                    closeMenu();
+                  }}
+                >
+                  Logout
+                </button>
+              </li>
+            </>
+          )}
+
+          {/* 👥 Show login/signup if not logged in */}
+          {!user && (
             <li>
               <Link to="/login" className="navbar-login" onClick={closeMenu}>
-                Login/Signup
+                Login / Signup
               </Link>
             </li>
           )}

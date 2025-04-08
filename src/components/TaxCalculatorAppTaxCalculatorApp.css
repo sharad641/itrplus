@@ -1,0 +1,163 @@
+/* TaxCalculatorApp.css */
+.tax-calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tax-calculator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .tax-calculator-header h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .tax-calculator-header p {
+    font-size: 1.1rem;
+    color: #777;
+  }
+  
+  .tax-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .tax-form label {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .tax-form input,
+  .tax-form select,
+  .tax-form button {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .tax-form input:focus,
+  .tax-form select:focus,
+  .tax-form button:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  .tax-form input[type="number"],
+  .tax-form input[type="text"] {
+    width: 100%;
+  }
+  
+  .tax-form select {
+    width: 100%;
+  }
+  
+  .tax-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tax-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .tax-result {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .tax-result h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .tax-result p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .tax-result span {
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .tax-calculator-container {
+      padding: 1.5rem;
+    }
+  
+    .tax-calculator-header h2 {
+      font-size: 2rem;
+    }
+  
+    .tax-calculator-header p {
+      font-size: 1rem;
+    }
+  
+    .tax-form input,
+    .tax-form select,
+    .tax-form button {
+      font-size: 0.9rem;
+    }
+  
+    .tax-form label {
+      font-size: 0.9rem;
+    }
+  
+    .tax-result h3 {
+      font-size: 1.6rem;
+    }
+  
+    .tax-result p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .tax-calculator-container {
+      padding: 1rem;
+    }
+  
+    .tax-calculator-header h2 {
+      font-size: 1.8rem;
+    }
+  
+    .tax-calculator-header p {
+      font-size: 0.9rem;
+    }
+  
+    .tax-form label {
+      font-size: 0.9rem;
+    }
+  
+    .tax-form input,
+    .tax-form select,
+    .tax-form button {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  
+    .tax-result h3 {
+      font-size: 1.4rem;
+    }
+  
+    .tax-result p {
+      font-size: 0.9rem;
+    }
+  }
+  
