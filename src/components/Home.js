@@ -1,85 +1,127 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Home.css";
+import {
+  FaUserPlus,
+  FaClipboardList,
+  FaCheckCircle,
+  FaArrowRight,
+  FaComments,
+  FaTimes,
+} from "react-icons/fa";
 import Services from "./Services";
 import ContactUs from "./ContactUs";
+import PricingPlans from "./PricingPlans";
+import ChatBot from "./ChatBot"; // ✅ Include ChatBot component
+import "./Home.css";
 
-
-function Home({ user }) {
+function Home() {
   const navigate = useNavigate();
-  const featureRef = useRef(null);
+  const [showChat, setShowChat] = useState(false);
 
-  const handleGetStarted = () => {
-    // Navigate directly to the User Profile Form
-    navigate("/user-info");
-  };
-
-  const handleExplore = () => {
-    // Smooth scroll to features section
-    featureRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const handleGetStarted = () => navigate("/user-info");
+  const handlePricing = () => navigate("/pricing-plans");
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section id="hero" className="hero">
-        <div className="hero-container">
-          <div className="hero-content">
-            <h1>Fincorp: Your Path to Financial Freedom Starts Here.</h1>
-            <p>
-              SmartSaver helps you manage your money like a pro — track income,
-              budget smartly, set savings goals, and get AI-powered financial tips,
-              all in one place.
-            </p>
-            <div className="hero-buttons">
-              <button className="btn-primary" onClick={handleGetStarted}>
-                Start Your Journey
-              </button>
-              <button className="btn-secondary" onClick={handleExplore}>
-                Explore Features
-              </button>
-            </div>
-          </div>
-          <div className="hero-image">
-            <img
-              src="/assets/home.jpg"
-              alt="Illustration of financial planning"
-              className="form-banner"
-            />
+    <>
+      {/* Hero/Login Section */}
+      <div className="home-wrapper">
+        <div className="left-pane">
+          <h1>
+            Simplify Your Tax Filing with <span className="brand">ITRPLUS</span>
+          </h1>
+          <p className="description">
+            Expert tax services at your fingertips. Fast, accurate, and hassle-free.
+          </p>
+          <div className="hero-buttons">
+            <button className="get-started-btn" onClick={handleGetStarted}>
+              Get Started
+            </button>
+            <button className="get-started-btn secondary-btn" onClick={handlePricing}>
+              View Pricing
+            </button>
           </div>
         </div>
-      </section>
 
-      {/* About Section */}
-      <section className="about-fincorp">
-        <div className="about-fincorp-container">
-          <div className="about-fincorp-image">
-            <img
-              src="/assets/fin.jpg"
-              alt="Team working on financial strategy"
-              className="form-banner"
-            />
-          </div>
-          <div className="about-fincorp-text">
-            <h2>About Fincorp</h2>
-            <p>
-              Welcome to <strong>Fincorp</strong>, your ultimate solution for smarter financial
-              planning. At Fincorp, we understand that managing money can be overwhelming,
-              but it doesn’t have to be. Our platform is built to simplify your financial
-              journey and help you make the most of your earnings.
+        <div className="right-pane">
+          <form className="login-form" onSubmit={(e) => e.preventDefault()}>
+            <h2>Login to Your Account</h2>
+
+            <label htmlFor="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required />
+
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required />
+
+            <button type="submit" className="sign-in-btn">
+              Sign In
+            </button>
+
+            <p className="signup-redirect">
+              Don't have an account?
+              <span className="signup-link" onClick={() => navigate("/login")}>
+                {" "}Sign Up
+              </span>
             </p>
-          </div>
+          </form>
         </div>
-      </section>
-
-      {/* Features Section (scroll-to target) */}
-      <div ref={featureRef}>
-        <Services />
       </div>
 
-     
+      {/* Services Section */}
+      <Services />
+
+      {/* How It Works Section */}
+      <section className="how-it-works">
+        <h2 className="how-title">How It Works</h2>
+        <div className="how-steps">
+          <div className="step">
+            <div className="step-icon"><FaUserPlus /></div>
+            <h3>1. Sign Up</h3>
+            <p>Create your account and log in to our secure platform.</p>
+          </div>
+
+          <div className="arrow-icon"><FaArrowRight /></div>
+
+          <div className="step">
+            <div className="step-icon"><FaClipboardList /></div>
+            <h3>2. Choose Service</h3>
+            <p>Select the tax service you need from our comprehensive offerings.</p>
+          </div>
+
+          <div className="arrow-icon"><FaArrowRight /></div>
+
+          <div className="step">
+            <div className="step-icon"><FaCheckCircle /></div>
+            <h3>3. Get It Done</h3>
+            <p>Our experts handle your tax needs efficiently and accurately.</p>
+          </div>
+        </div>
+
+        <button className="get-started-btn how-btn" onClick={handleGetStarted}>
+          Get Started Now
+        </button>
+      </section>
+
+      {/* Pricing + Contact */}
+      <PricingPlans />
       <ContactUs />
-    </div>
+
+      {/* 🧠 ChatBot Floating Icon */}
+      <div className="chatbot-float">
+        {showChat ? (
+          <div className="chatbot-popup">
+            <div className="chatbot-header">
+              
+              <FaTimes onClick={() => setShowChat(false)} className="close-icon" />
+            </div>
+            <ChatBot />
+          </div>
+        ) : (
+          <button className="chatbot-button" onClick={() => setShowChat(true)}>
+            <FaComments size={20} />
+          </button>
+        )}
+      </div>
+    </>
   );
 }
 

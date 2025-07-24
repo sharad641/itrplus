@@ -5,26 +5,24 @@ import "./Navbar.css";
 function Navbar({ user, onLogout }) {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Toggle the mobile menu
   const toggleMenu = () => {
     setIsMobile(!isMobile);
   };
 
-  // Close the menu when a link is clicked
   const closeMenu = () => {
     setIsMobile(false);
   };
 
   return (
     <nav className="navbar">
-      {/* Logo Section */}
+      {/* Logo */}
       <div className="navbar-logo">
         <Link to="/" onClick={closeMenu}>
-          Fincorp
+          ITRPLUS
         </Link>
       </div>
 
-      {/* Mobile Menu Toggle Button */}
+      {/* Hamburger */}
       <button className="navbar-toggle" onClick={toggleMenu}>
         <div className={`navbar-icon ${isMobile ? "active" : ""}`}>
           <div></div>
@@ -33,46 +31,26 @@ function Navbar({ user, onLogout }) {
         </div>
       </button>
 
-      {/* Navigation Links */}
+      {/* Links */}
       <div className={`navbar-links ${isMobile ? "active" : ""}`}>
         <ul>
-          <li>
-            <Link to="/" onClick={closeMenu}>Home</Link>
-          </li>
-          <li>
-            <Link to="/services" onClick={closeMenu}>Services</Link>
-          </li>
-          
-          <li>
-            <Link to="/user-info" onClick={closeMenu}>Financial Info</Link>
-          </li>
-          <li>
-            <Link to="/contact-us" onClick={closeMenu}>Contact Us</Link>
-          </li>
+          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+         
+          <li><Link to="/pricing-plans" onClick={closeMenu}>Pricing</Link></li>
+          <li><Link to="/tax-calculator" onClick={closeMenu}>Tax Calculator</Link></li>
+          <li><Link to="/money-management" onClick={closeMenu}>Money Tools</Link></li>
+          <li><Link to="/contact-us" onClick={closeMenu}>Contact</Link></li>
 
-          {/* 👤 Show user-specific links if logged in */}
-          {user && (
+          {user ? (
             <>
+              <li><Link to="/profile" onClick={closeMenu}>Profile</Link></li>
               <li>
-                <Link to="/profile" onClick={closeMenu}>Profile</Link> {/* Profile Link */}
-              </li>
-             
-              <li>
-                <button
-                  className="navbar-logout"
-                  onClick={() => {
-                    onLogout();
-                    closeMenu();
-                  }}
-                >
+                <button className="navbar-logout" onClick={() => { onLogout(); closeMenu(); }}>
                   Logout
                 </button>
               </li>
             </>
-          )}
-
-          {/* 👥 Show login/signup if not logged in */}
-          {!user && (
+          ) : (
             <li>
               <Link to="/login" className="navbar-login" onClick={closeMenu}>
                 Login / Signup

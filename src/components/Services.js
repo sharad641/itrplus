@@ -1,84 +1,70 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {
+  FaCalculator,
+  FaBriefcase,
+  FaClipboardList,
+  FaFolderOpen,
+  FaCreditCard,
+  FaUniversity,
+} from "react-icons/fa";
 import "./Services.css";
 
 function Services() {
   const navigate = useNavigate();
 
+  const services = [
+    {
+      icon: <FaCalculator size={32} color="#007bff" />,
+      title: "Income Tax Filing",
+      description: "Hassle-free income tax return filing for individuals and businesses.",
+      link: "/services/income-tax-filing", // ✅ Navigation path
+    },
+    {
+      icon: <FaBriefcase size={32} color="#007bff" />,
+      title: "GST Registration & Filing",
+      description: "Complete GST solutions including registration and return filing.",
+    },
+    {
+      icon: <FaClipboardList size={32} color="#007bff" />,
+      title: "Tax Planning",
+      description: "Expert advice on tax-saving strategies and investment planning.",
+    },
+    {
+      icon: <FaFolderOpen size={32} color="#007bff" />,
+      title: "Business Registration",
+      description: "Assistance in company incorporation and business registration.",
+    },
+    {
+      icon: <FaCreditCard size={32} color="#007bff" />,
+      title: "TDS Services",
+      description: "Comprehensive TDS return filing and compliance services.",
+    },
+    {
+      icon: <FaUniversity size={32} color="#007bff" />,
+      title: "Accounting Services",
+      description: "Professional bookkeeping and financial statement preparation.",
+    },
+  ];
+
   return (
-    <section className="services">
-      <h2>Our Services</h2>
-      <p>
-        Smart financial tools tailored for modern individuals, freelancers, and businesses.
-      </p>
-
-      <div className="services-container">
-        {/* 💸 Money Management */}
-        <div className="service-card">
-          <h3>Money Management</h3>
-          <p>
-            Track income, expenses, and budgets in real-time. Get personalized insights and automated alerts to improve your savings habits.
-          </p>
-          <button
-            className="cta-button"
-            onClick={() => navigate("/money-management")}
+    <section className="tax-services" id="services">
+      <h2 className="section-title">Our Tax Services</h2>
+      <div className="services-grid">
+        {services.map((service, idx) => (
+          <div
+            className="service-card"
+            key={idx}
+            onClick={() => {
+              if (service.link) navigate(service.link);
+            }}
+            style={{ cursor: service.link ? "pointer" : "default" }}
           >
-            Learn More
-          </button>
-        </div>
-
-        {/* 🤖 AI Finance Assistant */}
-        <div className="service-card">
-          <h3>AI Finance Assistant</h3>
-          <p>
-            Ask finance-related questions, get tax-saving tips, and generate reports — all powered by AI for real-time support.
-          </p>
-          <button
-            className="cta-button"
-            onClick={() => navigate("/chatbot")}
-          >
-            Chat Now
-          </button>
-        </div>
-
-        {/* 🎯 Savings & Goal Tracker */}
-        <div className="service-card">
-          <h3>Savings & Goal Tracker</h3>
-          <p>
-            Define savings goals, track your progress visually, and receive nudges to stay on track with gamified encouragement.
-          </p>
-          <Link to="/goal-tracking">
-            <button className="cta-button">Start Saving</button>
-          </Link>
-        </div>
-
-        {/* 🎧 Money Matters */}
-        <div className="service-card">
-          <h3>Money Matters: Listen, Learn, Grow</h3>
-          <p>
-            Explore bite-sized audio content, financial literacy podcasts, and expert interviews to grow your financial knowledge anytime, anywhere.
-          </p>
-          <button
-            className="cta-button"
-            onClick={() => navigate("/money-matters")}
-          >
-            Listen Now
-          </button>
-        </div>
-
-        {/* 💰 Tax Calculator */}
-        <div className="service-card">
-          <h3>Tax Calculator</h3>
-          <p>
-            Calculate your taxable income, estimate your tax liability, and optimize your tax savings. Get a clear understanding of your tax obligations with real-time calculations.
-          </p>
-          <button
-            className="cta-button"
-            onClick={() => navigate("/tax-calculator")}
-          >
-            Calculate Now
-          </button>
-        </div>
+            <div className="service-icon">{service.icon}</div>
+            <h3 className="service-title">{service.title}</h3>
+            <p className="service-description">{service.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

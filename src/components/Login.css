@@ -102,20 +102,25 @@ input:focus {
   background-color: #3367d6;
 }
 
+.signup-redirect,
 .toggle-text {
   text-align: center;
   margin-top: 20px;
-  color: #666666;
   font-size: 0.9rem;
+  color: #666666;
 }
 
+.signup-link,
 .toggle-link {
   color: #007bff;
   font-weight: bold;
   cursor: pointer;
+  margin-left: 5px;
   transition: color 0.3s ease;
 }
 
+.signup-link:hover,
 .toggle-link:hover {
   color: #0056b3;
+  text-decoration: underline;
 }

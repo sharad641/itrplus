@@ -5,7 +5,13 @@ import './ChatBot.css';
 
 const ChatBot = () => {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      text: "👋 Hi there! I'm your SmartSaver Assistant. Ask me anything about tax filing, investments, or money management.",
+      sender: 'bot',
+      timestamp: new Date().toLocaleTimeString(),
+    },
+  ]);
   const [isVisible, setIsVisible] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -20,10 +26,15 @@ const ChatBot = () => {
   }, [messages]);
 
   const handleSend = async () => {
-    if (input.trim() === '') return;
+    const trimmedInput = input.trim();
+    if (!trimmedInput) return;
 
-    const userMessage = { text: input, sender: 'user', timestamp: new Date().toLocaleTimeString() };
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
+    const userMessage = {
+      text: trimmedInput,
+      sender: 'user',
+      timestamp: new Date().toLocaleTimeString(),
+    };
+    setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setLoading(true);
 
@@ -35,23 +46,31 @@ const ChatBot = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: input }] }],
+            contents: [{ parts: [{ text: trimmedInput }] }],
           }),
         }
       );
 
       const data = await response.json();
-      const botResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || '🤖 Unable to generate response.';
+      const botText =
+        data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ||
+        "🤖 I'm not sure how to respond to that right now. Try rephrasing your question.";
 
-      const botMessage = { text: botResponse, sender: 'bot', timestamp: new Date().toLocaleTimeString() };
-      setMessages((prevMessages) => [...prevMessages, botMessage]);
-    } catch (error) {
-      const errorMessage = {
-        text: `⚠️ Error: ${error.message}`,
+      const botMessage = {
+        text: botText,
         sender: 'bot',
         timestamp: new Date().toLocaleTimeString(),
       };
-      setMessages((prevMessages) => [...prevMessages, errorMessage]);
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: `⚠️ Sorry, there was a problem reaching the assistant.\n${err.message}`,
+          sender: 'bot',
+          timestamp: new Date().toLocaleTimeString(),
+        },
+      ]);
     } finally {
       setLoading(false);
     }
