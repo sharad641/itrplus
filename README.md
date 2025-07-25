@@ -43,13 +43,13 @@
 ## 📷 Screenshots
 
 ### 🏠 Homepage & Services
-![Services](https://github.com/sharad641/itrplus/blob/main/public/assets/services.jpg)
+![Upload Workflow](https://github.com/sharad641/itrplus/blob/main/public/assets/WhatsApp%20Image%202025-07-25%20at%2023.03.49_8817c3e8.jpg)  
 
 ### 🤖 Chatbot Assistance
 ![Chatbot](https://github.com/sharad641/itrplus/blob/main/public/assets/chatbot.jpg)
 
 ### 📦 Document Upload & Workflow
-![Upload Workflow](https://github.com/sharad641/itrplus/blob/main/public/assets/WhatsApp%20Image%202025-07-25%20at%2023.03.49_8817c3e8.jpg)
+![Services](https://github.com/sharad641/itrplus/blob/main/public/assets/services.jpg)
 
 ### 💳 Payment Modes Supported
 ![Payment](https://github.com/sharad641/itrplus/blob/main/public/assets/paymentmode.jpg)
