@@ -6,7 +6,7 @@
 
 ## 🌐 Live Website
 
-(https://itrplus.netlify.app)n) 
+(https://itrplus.netlify.app)
 
 ---
 
