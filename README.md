@@ -6,7 +6,7 @@
 
 ## 🌐 Live Website
 
-(https://itrplus.netlify.app)
+[https://itrplus.in](https://itrplus.in) <!-- Replace with actual deployed URL -->
 
 ---
 
@@ -21,7 +21,7 @@
 ✅ Simple and clean homepage with helpful tax tools  
 🧮 Built-in tax calculators for quick assessment  
 📂 Upload PAN, Form-16, and bank proofs securely  
-📝 Guides and articles to help first-time filers  
+💬 Integrated chatbot for instant assistance  
 📱 Fully responsive layout for mobile and desktop  
 🔐 Firebase Auth for secure user login/logout  
 📊 Admin dashboard (for CA/consultants) *(Future scope)*  
@@ -30,22 +30,29 @@
 
 ## 🛠️ Tech Stack
 
-| Layer       | Technology             |
-|-------------|------------------------|
-| Frontend    | React.js, JSX, Tailwind CSS |
+| Layer       | Technology                   |
+|-------------|------------------------------|
+| Frontend    | React.js, JSX, Tailwind CSS  |
 | Auth & DB   | Firebase Authentication, Firestore |
-| Styling     | Tailwind CSS + Custom CSS |
-| Hosting     | Firebase Hosting / Netlify |
-| Tools       | Git, VS Code, Postman, Google Analytics |
+| Styling     | Tailwind CSS + Custom CSS    |
+| Hosting     | Firebase Hosting / Netlify   |
+| Tools       | Git, VS Code, Google Analytics |
 
 ---
 
 ## 📷 Screenshots
 
-> Include screenshots of the Homepage, Upload Section, and Calculators here  
-> Example:
-![Homepage](./screenshots/home.png)
-![Tax Calculator](./screenshots/calculator.png)
+### 🏠 Homepage & Services
+![Services](https://github.com/sharad641/itrplus/blob/main/public/assets/services.jpg)
+
+### 🤖 Chatbot Assistance
+![Chatbot](https://github.com/sharad641/itrplus/blob/main/public/assets/chatbot.jpg)
+
+### 📦 Document Upload & Workflow
+![Upload Workflow](https://github.com/sharad641/itrplus/blob/main/public/assets/WhatsApp%20Image%202025-07-25%20at%2023.03.49_8817c3e8.jpg)
+
+### 💳 Payment Modes Supported
+![Payment](https://github.com/sharad641/itrplus/blob/main/public/assets/paymentmode.jpg)
 
 ---
 
@@ -55,6 +62,7 @@
 ```bash
 git clone https://github.com/sharad641/itrplus.git
 cd itrplus
+
 
 
 Install dependencies
