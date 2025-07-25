@@ -6,7 +6,7 @@
 
 ## 🌐 Live Website
 
-[https://itrplus.in](https://itrplus.in) <!-- Replace with actual deployed URL -->
+(https://itrplus.netlify.app)
 
 ---
 
