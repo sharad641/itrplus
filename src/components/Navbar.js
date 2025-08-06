@@ -46,8 +46,7 @@ function Navbar({ user, onLogout }) {
       <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <ul>
           <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-          <li><Link to="/pricing-plans" onClick={closeMenu}>Pricing</Link></li>
-          <li><Link to="/tax-calculator" onClick={closeMenu}>Tax Calculator</Link></li>
+         
 
           {/* Tools Dropdown */}
           <li
@@ -67,6 +66,8 @@ function Navbar({ user, onLogout }) {
              
             </ul>
           </li>
+           <li><Link to="/pricing-plans" onClick={closeMenu}>Pricing</Link></li>
+          <li><Link to="/tax-calculator" onClick={closeMenu}>Tax Calculator</Link></li>
 
           
           <li><Link to="/contact-us" onClick={closeMenu}>Contact</Link></li>
